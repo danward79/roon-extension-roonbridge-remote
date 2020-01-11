@@ -1,0 +1,18 @@
+[Unit]
+Description=RoonBridge-Remote
+Wants=network-online.target
+After=roonbridge.service
+After=triggerhappy.service
+OnFailure=status-email-user@%i.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=node /home/pi/roonbridge/extensions/roon-extension-linuxkeyboardremote/.
+StandardOutput=journal+console
+SyslogIdentifier=roonbridge-remote
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

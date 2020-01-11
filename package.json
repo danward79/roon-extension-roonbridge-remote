@@ -1,7 +1,7 @@
 {
-  "name": "roon-extension-Roon-Bridge-Remote",
+  "name": "roon-extension-RoonBridge-Remote",
   "version": "1.0.0",
-  "description": "Roon Bridge Remote",
+  "description": "RoonBridge Remote",
   "main": "app.js",
   "author": "Dan Ward",
   "license": "Apache-2.0",

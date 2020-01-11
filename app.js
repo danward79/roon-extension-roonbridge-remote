@@ -10,11 +10,11 @@ var core;
 
 const roon = new RoonApi({
   extension_id:        os.hostname().split('.')[0],
-  display_name:        'Roon Bridge Remote: ' + os.hostname().split('.')[0],
+  display_name:        'RoonBridge Remote: ' + os.hostname().split('.')[0],
   display_version:     '1.0.0',
   publisher:           'Dan Ward',
   email:               '',
-  website:             'https://github.com/danward79/roon-extension-linuxkeyboardremote',
+  website:             'https://github.com/danward79/roon-extension-roonbridge-remote',
   log_level:           'none',
   
   core_paired: function(core_) {
