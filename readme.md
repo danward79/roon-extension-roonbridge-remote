@@ -54,10 +54,12 @@ git clone https://github.com/danward79/roon-extension-roonbridge-remote.git
 cd roon-extension-roonbridge-remote
 npm install
 
-cp roonbridge-remote.service /etc/systemd/system/
+cp *.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable roonbridge-remote
 systemctl start roonbridge-remote
+systemctl enable ir-keytable
+systemctl start ir-keytable
 ```
 
 You can verify that the service is running using:
@@ -136,7 +138,53 @@ If this is not the case ***Do Not Proceed!***
 
 This section deals with mapping the remote control scancodes to the keycodes used by the extension.
 
+The relationship is such that ir-keytable maps to linux keycode system events:
 
+   IR Receiver > ir-keytable (remote.conf) > linux keycode system event > roon-extension-roonbridge-remote
+
+The mapping is configured in the provided remote.conf file. This file will need editing to suit your remote control device.
+
+Run `ir-keytable -t` and press a key that you wish to map to an event. The output in responce to a button press should be similar to below:
+
+```
+pi@RoonBridge77dd1bc4:~/roonbridge/extensions/roon-extension-roonbridge-remote $ ir-keytable -t
+Testing events. Please, press CTRL-C to abort.
+4727.530038: lirc protocol(nec): scancode = 0x403
+4727.530086: event type EV_MSC(0x04): scancode = 0x403
+4727.530086: event type EV_KEY(0x01) key_down: KEY_VOLUMEDOWN(0x0072)
+4727.530086: event type EV_SYN(0x00).
+4727.580057: lirc protocol(nec): scancode = 0x403 repeat
+4727.580095: event type EV_MSC(0x04): scancode = 0x403
+4727.580095: event type EV_SYN(0x00).
+4727.710051: event type EV_KEY(0x01) key_up: KEY_VOLUMEDOWN(0x0072)
+4727.710051: event type EV_SYN(0x00).
+```
+
+The scancode for the key should be noted and used in remote.conf to map to the corresponding system event. For example ***0x403*** from above is mapped to ***KEY_VOLUMEDOWN*** below
+
+```
+# table lgtv_remote, type: nec
+0x408 KEY_PROG1
+0x402 KEY_VOLUMEUP
+0x403 KEY_VOLUMEDOWN
+0x409 KEY_MUTE
+0x4b1 KEY_STOP
+0x4b0 KEY_PLAY
+0x4ba KEY_PAUSE
+0x48e KEY_NEXT
+0x48f KEY_PREVIOUS
+```
+
+This file should be saved in `/home/pi/roonbridge/rc/`
+
+To ensure that ir-keytable is started with the correct config `ir-keytable.service` is provided.
+
+After the configuration is complete, either reboot the device or restart the service:
+
+```bash
+systemctl restart ir-keytable.service 
+systemctl status ir-keytable.service 
+```
 
 ## License
 

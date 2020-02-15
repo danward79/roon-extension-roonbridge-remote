@@ -1,0 +1,12 @@
+
+[Unit]
+Description=ir-keytable rc keymap override
+After=roonbridge.service
+After=triggerhappy.service
+
+[Service]
+User=root
+ExecStart=ir-keytable -c -w /home/pi/roonbridge/rc/remote.conf
+
+[Install]
+WantedBy=multi-user.target
