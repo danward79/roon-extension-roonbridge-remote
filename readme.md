@@ -30,10 +30,11 @@ The extension uses linux keycode system events to trigger the Roon api. These ev
 | KEY_NEXT      | 407        | next           |   
 | KEY_PREVIOUS  | 412        | previous       |
 | KEY_STOP      | 128        | stop           |
+| KEY_MUTE      | 113        | mute toggle    |
 | KEY_VOLUMEDOWN| 114        | volume down    |
 | KEY_VOLUMEUP  | 115        | volume up      |
-| KEY_HOMEPAGE  | 172        | convenience tba|
-| KEY_POWER     | 116        | convenience tba|
+| KEY_PROG1     | 148        | convenience tba|
+| KEY_PROG2     | 149        | convenience tba|
 
 The keycodes are hard-coded and could be changed in the app.js, however for this use case this is probably unnecessary, as the intent is to map IR or other inputs to trigger the internal events elsewhere, this can be achieved using [ir-keytable](https://manpages.debian.org/testing/ir-keytable/ir-keytable.1.en.html). 
 
@@ -133,7 +134,9 @@ If this is not the case ***Do Not Proceed!***
 
 ### Map IR Remote to events
 
-This section deals with mapping the remote control scancodes to the keycodes used by the extension... and is incomplete.
+This section deals with mapping the remote control scancodes to the keycodes used by the extension.
+
+
 
 ## License
 

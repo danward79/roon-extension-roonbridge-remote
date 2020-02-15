@@ -119,6 +119,6 @@ function keyboardEvent(e) {
   if (e.code == 115) core.services.RoonApiTransport.change_volume(mysettings.zone, 'relative', 1);
 
   // Convenience
-  if (e.code == 172) core.services.RoonApiTransport.convenience_switch(mysettings.zone, console.log("Convenience Switch: KEY_SELECT"));
-  if (e.code == 116) core.services.RoonApiTransport.convenience_switch(mysettings.zone, console.log("Convenience Switch: KEY_POWER"));
+  if (e.code == 148) core.services.RoonApiTransport.convenience_switch(mysettings.zone, console.log("Convenience Switch: KEY_PROG1"));
+  if (e.code == 149) core.services.RoonApiTransport.convenience_switch(mysettings.zone, console.log("Convenience Switch: KEY_PROG2"));
 }
