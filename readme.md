@@ -95,6 +95,7 @@ You can use a [Vishay TSOP38238](https://www.vishay.com/product?docid=82491), co
 | 1(Out)          | GPIO 26   | 37                 |
 | 2(Gnd)          | Ground    | 39                 |
 | 3(VS)           | 3V3 power | 1 or 17            |
+
 See below header pinout (courtesy of [raspberrypi.org](https://www.raspberrypi.org)):
 ![alt text](GPIO-Pinout-Diagram-2.png "Raspberry Pi Header pinout")
 
