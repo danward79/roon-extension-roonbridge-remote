@@ -8,7 +8,7 @@ OnFailure=status-email-user@%i.service
 [Service]
 Type=simple
 User=root
-ExecStart=node /home/pi/roonbridge/extensions/roon-extension-linuxkeyboardremote/.
+ExecStart=node /home/pi/roonbridge/extensions/roon-extension-roonbridge-remote/.
 StandardOutput=journal+console
 SyslogIdentifier=roonbridge-remote
 Restart=on-failure

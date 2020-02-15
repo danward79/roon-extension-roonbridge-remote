@@ -106,22 +106,19 @@ function keyboardEvent(e) {
   if (!core) return;
   
   // Transport
-  if(e.code == 207) core.services.RoonApiTransport.control(mysettings.zone, 'play');
-  if(e.code == 119) core.services.RoonApiTransport.control(mysettings.zone, 'pause');
-  if(e.code == 164) core.services.RoonApiTransport.control(mysettings.zone, 'playpause');
-  if(e.code == 128) core.services.RoonApiTransport.control(mysettings.zone, 'stop');
-  if(e.code == 407) core.services.RoonApiTransport.control(mysettings.zone, 'next');
-  if(e.code == 412) core.services.RoonApiTransport.control(mysettings.zone, 'previous');
+  if (e.code == 207) core.services.RoonApiTransport.control(mysettings.zone, 'play');
+  if (e.code == 119) core.services.RoonApiTransport.control(mysettings.zone, 'pause');
+  if (e.code == 164) core.services.RoonApiTransport.control(mysettings.zone, 'playpause');
+  if (e.code == 128) core.services.RoonApiTransport.control(mysettings.zone, 'stop');
+  if (e.code == 407) core.services.RoonApiTransport.control(mysettings.zone, 'next');
+  if (e.code == 412) core.services.RoonApiTransport.control(mysettings.zone, 'previous');
   
   // Volume
-  if(e.code == 114) core.services.RoonApiTransport.change_volume(mysettings.zone, 'relative', -1);
-  if(e.code == 115) core.services.RoonApiTransport.change_volume(mysettings.zone, 'relative', 1);
+  if (e.code == 113) core.services.RoonApiTransport.mute(mysettings.zone, 'toggle');
+  if (e.code == 114) core.services.RoonApiTransport.change_volume(mysettings.zone, 'relative', -1);
+  if (e.code == 115) core.services.RoonApiTransport.change_volume(mysettings.zone, 'relative', 1);
 
   // Convenience
-  if(e.code == 172) core.services.RoonApiTransport.convenience_switch(mysettings.zone, { 
-    console.log("Convenience Switch: KEY_SELECT"); 
-  });
-  if(e.code == 116) core.services.RoonApiTransport.convenience_switch(mysettings.zone, { 
-    console.log("Convenience Switch: KEY_POWER"); 
-  });
+  if (e.code == 172) core.services.RoonApiTransport.convenience_switch(mysettings.zone, console.log("Convenience Switch: KEY_SELECT"));
+  if (e.code == 116) core.services.RoonApiTransport.convenience_switch(mysettings.zone, console.log("Convenience Switch: KEY_POWER"));
 }
