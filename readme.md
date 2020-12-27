@@ -54,6 +54,11 @@ git clone https://github.com/danward79/roon-extension-roonbridge-remote.git
 cd roon-extension-roonbridge-remote
 npm install
 
+mkdir ~/roonbridge
+mkdir ~/roonbridge/rc
+mkdir ~/roonbridge/extensions
+cp remote.conf ~/roonbridge/rc
+cp -r ../roon-extension-roonbridge-remote ~/roonbridge/extensions
 cp *.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable roonbridge-remote

@@ -6,7 +6,7 @@ After=triggerhappy.service
 
 [Service]
 User=root
-ExecStart=ir-keytable -c -w /home/pi/roonbridge/rc/remote.conf
+ExecStart=ir-keytable -c -w ~/roonbridge/rc/remote.conf
 
 [Install]
 WantedBy=multi-user.target
